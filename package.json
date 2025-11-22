@@ -1,7 +1,9 @@
 {
-  "name": "shoppingcart",
-  "private": true,
+  "name": "e-plantShopping",
   "version": "0.0.0",
+  "private": true,
+  "homepage": "https://JrWork01.github.io/e-plantShopping/",
+
   "type": "module",
   "scripts": {
     "dev": "vite",
