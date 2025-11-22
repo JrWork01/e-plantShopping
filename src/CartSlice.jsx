@@ -21,11 +21,8 @@ export const CartSlice = createSlice({
 
     removeItem: (state, action) => {
         state.items = state.items.filter(item => item.name !== action.payload);
-        if(state.items && state.items.quantity > 0){
-            state.items.quantity--;
-        }
-
     },
+
     updateQuantity: (state, action) => {
         const { name, quantity } = action.payload; // Destructure the product name and new quantity from the action payload
         // Find the item in the cart that matches the given name
@@ -34,9 +31,13 @@ export const CartSlice = createSlice({
             itemToUpdate.quantity = quantity; // If the item is found, update its quantity to the new value
         }    
     },
+    //To handle the checkout option
+    clearCart: (state) => {
+        state.items = [];
+      },
   },
 });
 
-export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
+export const { addItem, removeItem, updateQuantity, clearCart } = CartSlice.actions;
 
 export default CartSlice.reducer;
