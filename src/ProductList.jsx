@@ -321,7 +321,18 @@ function ProductList({ onHomeClick }) {
                                 />
                             </svg>
                             </h1>
-                            <span className="cart-count">{calculateTotalQuantity()}</span>
+                            <span style={{ position: "absolute",
+                                             top: 25,
+                                             right: 20,
+                                             color: "white",
+                                             borderRadius: "50%",
+                                             width: "40px",
+                                             height: "40px",
+                                             display: "flex",
+                                             justifyContent: "center",
+                                             alignItems: "center",
+                                             fontSize: "0.5em",                                     
+                                        }}>{calculateTotalQuantity()}</span>
                         </a>
                     </div>                  
 
@@ -349,8 +360,10 @@ function ProductList({ onHomeClick }) {
                             <button
                                 className="product-button"
                                 onClick={() => handleAddToCart(plant)} // Handle adding plant to cart
-                            >
-                                Add to Cart
+               
+                                disabled={!!cartItems.find(item => item.name === plant.name)}                     
+                            > 
+                                {cartItems.find(item => item.name === plant.name) ? "Added" : "Add to Cart"}
                             </button>
                             </div>
                         ))}
