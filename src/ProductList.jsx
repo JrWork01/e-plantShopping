@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './ProductList.css'
 import CartItem from './CartItem';
-import cartReducer from './CartSlice';
+import {  addItem, removeItem, updateQuantity, clearCart  } from './CartSlice';   
+
 
 
 function ProductList({ onHomeClick }) {
@@ -23,7 +24,7 @@ function ProductList({ onHomeClick }) {
       };
 
       const calculateTotalQuantity = () => {
-        return CartItems ? CartItems.reduce((total, item) => total + item.quantity, 0) : 0;
+        return cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0;
       };
 
     const plantsArray = [
